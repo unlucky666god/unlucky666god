@@ -1,26 +1,172 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  /* --- COLORS (Material Design 3 Palette) --- */
+  --color-outline: #849495;
+  --color-inverse-on-surface: #2e303b;
+  --color-tertiary: #d9ffe3;
+  --color-surface-container: #1d1f2a;
+  --color-on-secondary: #480081;
+  --color-on-tertiary-container: #006d41;
+  --color-tertiary-fixed-dim: #00e38d;
+  --color-on-tertiary: #00391f;
+  --color-secondary: #dcb8ff;
+  --color-on-surface-variant: #b9cacb;
+  --color-primary-fixed-dim: #00dbe9;
+  --color-on-background: #e1e1f1;
+  --color-error-container: #93000a;
+  --color-surface-tint: #00dbe9;
+  --color-on-tertiary-fixed: #002110;
+  --color-secondary-container: #7701d0;
+  --color-secondary-fixed-dim: #dcb8ff;
+  --color-surface-variant: #323440;
+  --color-surface-bright: #373944;
+  --color-on-secondary-fixed: #2c0051;
+  --color-on-error-container: #ffdad6;
+  --color-background: #11131d;
+  --color-on-error: #690005;
+  --color-on-primary-fixed: #002022;
+  --color-on-secondary-fixed-variant: #6700b5;
+  --color-primary-fixed: #7df4ff;
+  --color-inverse-primary: #006970;
+  --color-primary-container: #00f0ff;
+  --color-inverse-surface: #e1e1f1;
+  --color-surface-container-high: #272935;
+  --color-surface-container-lowest: #0b0e18;
+  --color-tertiary-container: #00f89b;
+  --color-on-surface: #e1e1f1;
+  --color-tertiary-fixed: #54ffa9;
+  --color-on-tertiary-fixed-variant: #005230;
+  --color-secondary-fixed: #efdbff;
+  --color-on-primary-container: #006970;
+  --color-error: #ffb4ab;
+  --color-outline-variant: #3b494b;
+  --color-surface-container-highest: #323440;
+  --color-primary: #dbfcff;
+  --color-surface-dim: #11131d;
+  --color-on-primary: #00363a;
+  --color-surface-container-low: #191b26;
+  --color-on-primary-fixed-variant: #004f54;
+  --color-surface: #11131d;
+  --color-on-secondary-container: #dcb7ff;
+
+  /* --- BORDER RADIUS --- */
+  --radius: 0.25rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* --- SPACING --- */
+  --spacing-space-xs: 0.25rem;
+  --spacing-space-sm: 0.5rem;
+  --spacing-space-md: 1rem;
+  --spacing-space-lg: 1.5rem;
+  --spacing-space-xl: 2.5rem;
+  --spacing-margin: 1rem;
+  --spacing-margin-tablet: 2rem;
+  --spacing-margin-desktop: 3rem;
+  --spacing-gutter: 1rem;
+  --spacing-gutter-desktop: 1.5rem;
+
+  /* --- FONT FAMILIES --- */
+  --font-code: var(--font-jetbrains);
+  --font-body: var(--font-jakarta);
+  --font-headline: var(--font-space);
+
+  /* --- TYPOGRAPHY (Tailwind CSS v4 Spec) --- */
+  --text-code-sm: 12px;
+  --text-code-sm--line-height: 18px;
+  --text-code-sm--font-weight: 400;
+
+  --text-label-caps: 11px;
+  --text-label-caps--line-height: 16px;
+  --text-label-caps--font-weight: 600;
+  --text-label-caps--letter-spacing: 0.08em;
+
+  --text-headline-lg: 36px;
+  --text-headline-lg--line-height: 44px;
+  --text-headline-lg--font-weight: 600;
+  --text-headline-lg--letter-spacing: -0.02em;
+
+  --text-code-md: 14px;
+  --text-code-md--line-height: 22px;
+  --text-code-md--font-weight: 500;
+  --text-code-md--letter-spacing: -0.01em;
+
+  --text-headline-md: 24px;
+  --text-headline-md--line-height: 32px;
+  --text-headline-md--font-weight: 600;
+  --text-headline-md--letter-spacing: -0.01em;
+
+  --text-body-lg: 18px;
+  --text-body-lg--line-height: 28px;
+  --text-body-lg--font-weight: 400;
+
+  --text-headline-sm: 20px;
+  --text-headline-sm--line-height: 28px;
+  --text-headline-sm--font-weight: 500;
+
+  --text-display-hero-mobile: 36px;
+  --text-display-hero-mobile--line-height: 44px;
+  --text-display-hero-mobile--font-weight: 700;
+  --text-display-hero-mobile--letter-spacing: -0.02em;
+
+  --text-body-md: 15px;
+  --text-body-md--line-height: 24px;
+  --text-body-md--font-weight: 400;
+
+  --text-headline-lg-mobile: 26px;
+  --text-headline-lg-mobile--line-height: 34px;
+  --text-headline-lg-mobile--font-weight: 600;
+  --text-headline-lg-mobile--letter-spacing: -0.01em;
+
+  --text-display-hero: 56px;
+  --text-display-hero--line-height: 64px;
+  --text-display-hero--font-weight: 700;
+  --text-display-hero--letter-spacing: -0.03em;
+
+  --text-body-sm: 13px;
+  --text-body-sm--line-height: 20px;
+  --text-body-sm--font-weight: 400;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  html, body {
+    margin: 0;
+    padding: 0;
+    overscroll-behavior: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  ::-webkit-scrollbar {
+    display: none;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Кастомные утилиты слайдов и стеклянного эффекта */
+.snap-container {
+  height: 100dvh;
+  width: 100vw;
+  overflow-y: auto;
+  scroll-snap-type: y mandatory;
+  scroll-behavior: smooth;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.slide-section {
+  height: 100dvh;
+  width: 100vw;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.liquid-glass {
+  backdrop-filter: blur(24px) saturate(180%);
+  -webkit-backdrop-filter: blur(24px) saturate(180%);
 }
