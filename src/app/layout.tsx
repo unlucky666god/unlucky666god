@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "unlucky666god | Developer Portfolio",
     description: "Next.js & C++ High-Performance Systems",
-    images: ["/og-image.png"],
+    images: ["/og-image.jpg"],
   },
 };
 
