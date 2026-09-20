@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     siteName: "unlucky666god | Developer Portfolio",
     images: [
       {
-        url: "/og-image.jpg", // Файл лежит в папки public/og-image.png
+        url: "/opengraph-image.jpg", // Файл лежит в папки public/og-image.png
         width: 1200,
         height: 630,
         alt: "unlucky666god Developer Portfolio",
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "unlucky666god | Developer Portfolio",
     description: "Next.js & C++ High-Performance Systems",
-    images: ["/og-image.jpg"],
+    images: ["/opengraph-image.jpg"],
   },
 };
 
