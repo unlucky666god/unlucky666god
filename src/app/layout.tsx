@@ -11,7 +11,7 @@ const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
   // metadataBase обязателен для формирования абсолютных ссылок на картинку на Vercel
-  metadataBase: new URL("https://unlucky666god-cuetaurng-unlucky666gods-projects.vercel.app/"), 
+  metadataBase: new URL("https://unlucky666god.vercel.app/"), 
 
   title: "unlucky666god | Developer Portfolio",
   description: "Next.js & C++ High-Performance Systems",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "unlucky666god | Developer Portfolio",
     description: "Next.js & C++ High-Performance Systems",
-    url: "https://unlucky666god-cuetaurng-unlucky666gods-projects.vercel.app/",
+    url: "https://unlucky666god.vercel.app/",
     siteName: "unlucky666god | Developer Portfolio",
     images: [
       {
