@@ -10,8 +10,37 @@ const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "cyrillic-ext"], weight: 
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
+  // metadataBase обязателен для формирования абсолютных ссылок на картинку на Vercel
+  metadataBase: new URL("https://unlucky666god-cuetaurng-unlucky666gods-projects.vercel.app/"), 
+
   title: "unlucky666god | Developer Portfolio",
   description: "Next.js & C++ High-Performance Systems",
+
+  // Настройки Open Graph (Telegram, VK, WhatsApp, LinkedIn)
+  openGraph: {
+    title: "unlucky666god | Developer Portfolio",
+    description: "Next.js & C++ High-Performance Systems",
+    url: "https://unlucky666god-cuetaurng-unlucky666gods-projects.vercel.app/",
+    siteName: "unlucky666god | Developer Portfolio",
+    images: [
+      {
+        url: "/og-image.jpg", // Файл лежит в папки public/og-image.png
+        width: 1200,
+        height: 630,
+        alt: "unlucky666god Developer Portfolio",
+      },
+    ],
+    locale: "ru_RU",
+    type: "website",
+  },
+
+  // Настройки карточки для Twitter / X
+  twitter: {
+    card: "summary_large_image",
+    title: "unlucky666god | Developer Portfolio",
+    description: "Next.js & C++ High-Performance Systems",
+    images: ["/og-image.png"],
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
