@@ -6,11 +6,11 @@ import SlideNav from "@/components/layout/SlideNav";
 import ShaderBackground from "@/components/layout/ShaderBackground";
 
 const jetbrains = JetBrains_Mono({ subsets: ["latin", "cyrillic"], weight: ['400', '500', '600', '700', '800'], variable: "--font-jetbrains" });
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "cyrillic"], weight: ['400', '500', '600', '700', '800'], variable: "--font-jakarta" });
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin", "cyrillic-ext"], weight: ['400', '500', '600', '700', '800'], variable: "--font-jakarta" });
 const space = Space_Grotesk({ subsets: ["latin"], variable: "--font-space" });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Systems Architect",
+  title: "unlucky666god | Developer Portfolio",
   description: "Next.js & C++ High-Performance Systems",
 };
 

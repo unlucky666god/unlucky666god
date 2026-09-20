@@ -16,6 +16,7 @@ export default function ShaderBackground() {
 
     // --- Настройка размеров ---
     function syncSize() {
+      if (!canvas) return;
       const w = canvas.clientWidth || 1280;
       const h = canvas.clientHeight || 720;
       if (canvas.width !== w || canvas.height !== h) {
@@ -30,8 +31,8 @@ export default function ShaderBackground() {
     }
     syncSize();
 
-    // --- Инициализация WebGL ---
-    const gl = canvas.getContext("webgl") || canvas.getContext("experimental-webgl");
+    // --- Инициализация WebGL с явным приведением типа ---
+    const gl = (canvas.getContext("webgl") || canvas.getContext("experimental-webgl")) as WebGLRenderingContext | null;
     if (!gl) return;
 
     const vs = `
@@ -117,6 +118,7 @@ export default function ShaderBackground() {
     `;
 
     function cs(type: number, src: string) {
+      if (!gl) return null;
       const s = gl.createShader(type);
       if (!s) return null;
       gl.shaderSource(s, src);
@@ -149,6 +151,7 @@ export default function ShaderBackground() {
     let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
     
     mouseMoveHandler = (event: MouseEvent) => {
+      if (!canvas) return;
       const rect = canvas.getBoundingClientRect();
       if (rect.width && rect.height) {
         const nx = (event.clientX - rect.left) / rect.width;
@@ -160,7 +163,7 @@ export default function ShaderBackground() {
     window.addEventListener("mousemove", mouseMoveHandler);
 
     function render(t: number) {
-      if (!gl || !prog) return;
+      if (!gl || !prog || !canvas) return;
       if (typeof ResizeObserver === "undefined") syncSize();
       gl.viewport(0, 0, canvas.width, canvas.height);
       if (uTime) gl.uniform1f(uTime, t * 0.001);
@@ -170,21 +173,17 @@ export default function ShaderBackground() {
       animationId = requestAnimationFrame(render);
     }
 
-    // --- Доступность (Accessibility) ---
-    // Если пользователь предпочитает уменьшенное движение в ОС, рисуем только один кадр
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       render(0);
     } else {
       animationId = requestAnimationFrame(render);
     }
 
-    // --- ОЧИСТКА (CRITICAL для Next.js) ---
     return () => {
       if (animationId) cancelAnimationFrame(animationId);
       if (resizeObserver) resizeObserver.disconnect();
       if (mouseMoveHandler) window.removeEventListener("mousemove", mouseMoveHandler);
       
-      // Освобождение WebGL ресурсов
       gl.deleteProgram(prog);
       if (vertexShader) gl.deleteShader(vertexShader);
       if (fragmentShader) gl.deleteShader(fragmentShader);
